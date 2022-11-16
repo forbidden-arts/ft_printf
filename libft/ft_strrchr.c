@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/16 08:43:28 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/11/16 11:49:33 by dpalmer          ###   ########.fr       */
+/*   Created: 2022/10/25 09:51:38 by dpalmer           #+#    #+#             */
+/*   Updated: 2022/10/27 11:08:08 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include "libft.h"
+// Finds the last occurrence of a character within a string.
 
-int	ft_printf(const char *format, ...);
+char	*ft_strrchr(const char *s, int c)
+{
+	char	*last;
 
-#endif
+	last = NULL;
+	if (c == '\0')
+		return ((char *)s + ft_strlen(s));
+	while (*s)
+	{
+		if (*s == (char)c)
+			last = ((char *)s);
+		s++;
+	}
+	return (last);
+}

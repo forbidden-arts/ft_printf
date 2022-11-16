@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/16 08:43:28 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/11/16 11:49:33 by dpalmer          ###   ########.fr       */
+/*   Created: 2022/10/26 07:34:30 by dpalmer           #+#    #+#             */
+/*   Updated: 2022/10/27 11:06:52 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include "libft.h"
+// Compares two strings up to a specified limit.
 
-int	ft_printf(const char *format, ...);
-
-#endif
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	while ((*s1 || *s2) && n)
+	{
+		if (*s1 != *s2)
+			return ((unsigned char)*s1 - *s2);
+		s1++;
+		s2++;
+		n--;
+	}
+	return (0);
+}

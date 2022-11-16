@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/16 08:43:28 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/11/16 11:49:33 by dpalmer          ###   ########.fr       */
+/*   Created: 2022/10/25 08:56:07 by dpalmer           #+#    #+#             */
+/*   Updated: 2022/10/26 07:29:41 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include "libft.h"
+// Loops LEN number of times and applies the value of INT c as an unsigned char.
 
-int	ft_printf(const char *format, ...);
+void	*ft_memset(void *b, int c, size_t len)
+{
+	unsigned char	*ptr;
 
-#endif
+	ptr = (unsigned char *)b;
+	while (len--)
+		*(ptr++) = (unsigned char)c;
+	return (b);
+}

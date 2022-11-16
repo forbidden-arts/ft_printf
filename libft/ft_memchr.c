@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/16 08:43:28 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/11/16 11:49:33 by dpalmer          ###   ########.fr       */
+/*   Created: 2022/10/24 19:04:28 by dan               #+#    #+#             */
+/*   Updated: 2022/11/07 07:42:20 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include "libft.h"
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	const char	*s_temp;
+	size_t		i;
 
-int	ft_printf(const char *format, ...);
-
-#endif
+	s_temp = (const char *)s;
+	i = 0;
+	while (i < n)
+	{
+		if (s_temp[i] == (char)c)
+			return ((void *)s + i);
+		i++;
+	}
+	return (NULL);
+}

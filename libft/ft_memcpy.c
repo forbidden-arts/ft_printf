@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/16 08:43:28 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/11/16 11:49:33 by dpalmer          ###   ########.fr       */
+/*   Created: 2022/10/25 12:18:28 by dpalmer           #+#    #+#             */
+/*   Updated: 2022/10/26 16:07:14 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include "libft.h"
+void	*ft_memcpy(void *dst, const void *src, size_t n)
+{
+	char		*dst2;
+	const char	*src2;
 
-int	ft_printf(const char *format, ...);
-
-#endif
+	dst2 = (char *)(dst);
+	src2 = (const char *)(src);
+	if (dst == src || n == 0)
+		return (dst);
+	while (n--)
+		*(dst2++) = *(src2++);
+	return (dst);
+}
