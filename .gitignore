@@ -1,0 +1,5 @@
+a.out
+*.a
+libft/objs/*
+objs/*
+test.c

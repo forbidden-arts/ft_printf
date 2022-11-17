@@ -6,57 +6,66 @@
 #    By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 11:53:47 by dpalmer           #+#    #+#              #
-#    Updated: 2022/11/16 08:37:25 by dpalmer          ###   ########.fr        #
+#    Updated: 2022/11/17 10:31:56 by dpalmer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS =		
+# Variables
 
-# Text Decoration Defs
-bold := $(shell tput bold)
-b_green := $(shell tput setaf 10)
-b_yellow := $(shell tput setaf 11)
-b_magenta := $(shell tput setaf 13)
-reset := $(shell tput sgr0)
-# End Decoration Defs
+NAME		= libftprintf.a
+INCLUDE		= include
+LIBFT		= libft
+SRC_DIR		= src/
+OBJ_DIR		= objs/
+CC			= cc
+CFLAGS		= -Wall -Werror -Wextra -I
+AR			= ar rcs
+
+# Colors
+
+C_RESET = \033[0;39m
+GREEN = \033[0;92m
+YELLOW = \033[0;93m
+BLUE = \033[0;94m
+B_MAGENTA = \033[1;35m
+CYAN = \033[0;96m
+
+#Sources
+
+SRC_FILES	=	ft_conv_utils
 
 
-NAME = libftprintf.a
+SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
+OBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
 
-OBJS_DIR = objs/
-OBJS = $(SRCS:.c=.o)
-OBJECTS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
+###
 
-LIBFT_PATH = ./libft
-LIBFT = $(LIBFT_PATH)/libft.a
+all:		$(NAME)
 
+$(NAME):	$(OBJ)
+			@make -C $(LIBFT)
+			@cp $(LIBFT)/libft.a .
+			@mv libft.a $(NAME)
+			@$(AR) $(NAME) $(OBJ)
+			@echo "\n$(B_MAGENTA)FT_PRINTF COMPILED SUCCESSFULLY$(C_RESET)"
 
-CC = cc
-
-CC_FLAGS = -Wall -Wextra -Werror
-
-$(OBJS_DIR)%.o : %.c ft_printf.h
-	@mkdir -p $(OBJS_DIR)
-	$(info $(b_green)Compiling:$(b_yellow) $<$(reset))
-	@cc $(CC_FLAGS) -c $< -o $@
-
-$(NAME): $(OBJECTS_PREFIXED)
-	@cp $(LIBFT) $(NAME)
-	@ar rcs $(NAME) $(OBJECTS_PREFIXED)
-	$(info $(b_magenta)$(bold)LIBFTPRINTF COMPILED SUCCESSFULLY$(reset))
-
-$(LIBFT): make -C $(LIBFT_PATH) all
-
-all: $(NAME)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+			@mkdir -p $(OBJ_DIR)
+			@echo "$(GREEN)Compiling: $(YELLOW) $< $(C_RESET)"
+			@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+			@echo "$(B_MAGENTA)FT_PRINTF COMPILED$(C_RESET)"
 
 clean:
-	make -C $(LIBFT_PATH) clean
-	rm -rf $(OBJS_DIR)
+			rm -rf $(OBJ_DIR)
+			@make clean -C $(LIBFT)
+			@echo "$(BLUE)OBJECT FILES DELETED$(C_RESET)"
 
-fclean: clean
-	make -C $(LIBFT_PATH) fclean
-	rm -f $(NAME)
+fclean:		clean
+			rm -f $(NAME)
+			@echo "$(CYAN)FT_PRINTF EXECUTABLE FILES DELETED$(C_RESET)"
+			rm -f $(LIBFT)/libft.a
+			@echo "$(CYAN)LIBFT EXECUTABLE FILES DELETED$(C_RESET)"
 
-re: fclean all
+re:			fclean all
 
-.PHONY: all clean fclean re libft
+.PHONY:		all clean fclean re
