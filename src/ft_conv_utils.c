@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 12:26:19 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/11/17 10:56:41 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/11/17 13:58:35 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // TODO: Need a multibase conversion for LONG INT to String
 
-int	ft_get_num_digits(long num, int base)
+int	ft_count_digits(long num, int base)
 {
 	int	i;
 
@@ -46,7 +46,7 @@ char	*ft_itoa_b(int num, int base)
 		return (NULL);
 	if (!num)
 		return ("0");
-	result = ft_calloc(ft_get_num_digits(num, base) + 1, sizeof(char));
+	result = ft_calloc(ft_count_digits(num, base) + 1, sizeof(char));
 	if (!result)
 		return (NULL);
 	i = 0;

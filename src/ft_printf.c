@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 12:13:11 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/11/17 13:51:21 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/11/17 14:00:56 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_pf_parse(char *str, va_list ap)
 {
-
+	
 }
 
 int	ft_printf(const char *format, ...)

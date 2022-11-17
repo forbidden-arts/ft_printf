@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 08:43:28 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/11/17 13:33:24 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/11/17 13:58:24 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_flag
 int		ft_printf(const char *format, ...);
 
 // Utility Funcs
+int		ft_count_digits(long num, int base);
 char	*ft_itoa_b(int num, int base);
 
 #endif
