@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_pf_flags.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/16 08:43:28 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/11/17 13:33:24 by dpalmer          ###   ########.fr       */
+/*   Created: 2022/11/17 13:39:47 by dpalmer           #+#    #+#             */
+/*   Updated: 2022/11/17 13:44:30 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include "libft.h"
-
-// Struct for Flags
-typedef struct s_flag
+t_flag	ft_init_flag(void)
 {
-	int	minus;
-	int	zero;
-	int	dot;
-	int	hash;
-	int	space;
-	int	plus;
-}		t_flag;
+	t_flag	flag;
 
-int		ft_printf(const char *format, ...);
-
-// Utility Funcs
-char	*ft_itoa_b(int num, int base);
-
-#endif
+	flag.dot = 0;
+	flag.hash = 0;
+	flag.minus = 0;
+	flag.plus = 0;
+	flag.space = 0;
+	flag.zero = 0;
+}
