@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 12:26:19 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/11/17 10:32:26 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/11/17 10:56:41 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ char	*ft_itoa_b(int num, int base)
 	char			*result;
 	unsigned int	num_p;
 
+	if (base < 2 || base > 36)
+		return (NULL);
 	if (!num)
 		return ("0");
 	result = ft_calloc(ft_get_num_digits(num, base) + 1, sizeof(char));
