@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 12:13:11 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/11/17 15:47:10 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/11/18 11:26:30 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,40 @@
 
 static int	ft_pf_args(va_list ap, char c, int count)
 {
-	char	*temp;
-	
 	if (c == '%')
 		count += ft_pf_char('%');
 	else if (c == 'c')
 		count += ft_pf_char(va_arg(ap, int));
 	else if (c == 's')
 		count += ft_pf_str(va_arg(ap, char *));
-	
+	else if (c == 'd' || c == 'i')
+		count += ft_pf_int(va_arg(ap, int));
+	else if (c == 'u')
+		count += ft_pf_base(va_arg(ap, unsigned int), 10, 0);
+	else if (c == 'x' || c == 'X')
+		count += ft_pf_base(va_arg(ap, long), 16, (1 * (c == 'X')));
+	else if (c == 'p')
+		count += ft_pf_ptr(va_arg(ap, unsigned long));
+	return (count);
 }
 
 static int	ft_pf_parse(char *str, va_list ap)
 {
 	int	count;
-	
+
 	count = 0;
 	while (*str)
 	{
-		
+		if (*str == '%')
+		{
+			if (!str[1])
+				break ;
+			str++;
+			count += ft_pf_args(ap, *str, count);
+		}
+		else
+			count += ft_pf_char(*str);
+		str++;
 	}
 	return (count);
 }

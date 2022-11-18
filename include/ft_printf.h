@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 08:43:28 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/11/17 15:30:25 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/11/18 11:26:14 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,11 @@ int		ft_printf(const char *format, ...);
 
 // Utility Funcs
 int		ft_count_digits(long num, int base);
-char	*ft_ltoa_b(long num, int base);
+char	*ft_ltoa_b(long long num, int base);
 int		ft_pf_char(char c);
 int		ft_pf_str(char *str);
+int		ft_pf_int(int i);
+int		ft_pf_base(unsigned long ul, int base, int upper);
+int		ft_pf_ptr(unsigned long ul);
 
 #endif

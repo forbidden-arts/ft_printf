@@ -6,7 +6,7 @@
 #    By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 11:53:47 by dpalmer           #+#    #+#              #
-#    Updated: 2022/11/17 10:31:56 by dpalmer          ###   ########.fr        #
+#    Updated: 2022/11/18 11:20:13 by dpalmer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,9 @@ CYAN = \033[0;96m
 
 #Sources
 
-SRC_FILES	=	ft_conv_utils
+SRC_FILES	=	ft_conv_utils	\
+				ft_pf_printers	\
+				ft_printf
 
 
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
