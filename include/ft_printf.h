@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 08:43:28 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/11/18 13:08:47 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/11/18 14:39:48 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
-# include "libft.h"
+# include "../libft/libft.h"
 
 // Struct for Flags - REVISIT LATER
 // typedef struct s_flag
