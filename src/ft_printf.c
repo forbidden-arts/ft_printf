@@ -6,33 +6,32 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 12:13:11 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/11/18 13:34:53 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/11/18 13:41:26 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-static int	ft_pf_args(va_list ap, char c, int count)
+static int	ft_pf_args(va_list *ap, char c, int count)
 {
 	if (c == '%')
 		count += ft_pf_char('%');
 	else if (c == 'c')
-		count += ft_pf_char(va_arg(ap, int));
+		count += ft_pf_char(va_arg(*ap, int));
 	else if (c == 's')
-		count += ft_pf_str(va_arg(ap, char *));
+		count += ft_pf_str(va_arg(*ap, char *));
 	else if (c == 'd' || c == 'i')
-		count += ft_pf_int(va_arg(ap, int));
+		count += ft_pf_int(va_arg(*ap, int));
 	else if (c == 'u')
-		count += ft_pf_base(va_arg(ap, unsigned int), 10, 0);
+		count += ft_pf_base(va_arg(*ap, unsigned int), 10, 0);
 	else if (c == 'x' || c == 'X')
-		count += ft_pf_base(va_arg(ap, unsigned int), 16, (1 * (c == 'X')));
+		count += ft_pf_base(va_arg(*ap, unsigned int), 16, (1 * (c == 'X')));
 	else if (c == 'p')
-		count += ft_pf_ptr(va_arg(ap, unsigned long));
+		count += ft_pf_ptr(va_arg(*ap, unsigned long));
 	return (count);
 }
 
-static int	ft_pf_parse(char *str, va_list ap)
+static int	ft_pf_parse(char *str, va_list *ap)
 {
 	int	count;
 
@@ -65,7 +64,7 @@ int	ft_printf(const char *format, ...)
 	if (!str)
 		return (0);
 	va_start(ap, format);
-	count = ft_pf_parse(str, ap);
+	count = ft_pf_parse(str, &ap);
 	va_end(ap);
 	free (str);
 	return (count);
