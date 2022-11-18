@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 15:04:42 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/11/18 11:25:33 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/11/18 13:26:25 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,11 @@ int	ft_pf_base(unsigned long ul, int base, int upper)
 	str = ft_ltoa_b(ul, base);
 	if (upper)
 	{
-		while (*str)
+		count = 0;
+		while (str[count])
 		{
-			*str = ft_toupper(*str);
-			str++;
+			str[count] = ft_toupper(str[count]);
+			count++;
 		}
 	}
 	count = ft_pf_str(str);
@@ -67,6 +68,11 @@ int	ft_pf_ptr(unsigned long ul)
 	int		count;
 
 	write (1, "0x", 2);
+	if (ul == 0)
+	{
+		write (1, "0", 1);
+		return (3);
+	}
 	count = ft_pf_base(ul, 16, 0);
 	return (count + 2);
 }

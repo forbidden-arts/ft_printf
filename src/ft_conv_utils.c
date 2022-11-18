@@ -6,13 +6,13 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 12:26:19 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/11/18 10:38:35 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/11/18 13:15:53 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_count_digits(long num, int base)
+int	ft_count_digits(unsigned long num, int base)
 {
 	int	i;
 
@@ -42,11 +42,11 @@ char	*ft_ltoa_b(long long num, int base)
 
 	if (base < 2 || base > 36)
 		return (NULL);
-	if (!num)
-		return ("0");
 	result = ft_calloc(ft_count_digits(num, base) + 1, sizeof(char));
 	if (!result)
 		return (NULL);
+	if (!num)
+		result[0] = '0';
 	i = 0;
 	num_p = (unsigned long)num;
 	while (num_p)
