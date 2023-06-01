@@ -5,7 +5,7 @@
 ## 🪧 Overview
 Ah yes, the ever-useful printf: quick debugger of code, handler of an unspecified number of arguments, and **pain in my butt.**
 
-Well, at least at first. The purpose of this project is to get familiar with variadic arguments. For those of you who are _not_ nerds, that's a nerdy way of saying that you can give this function a lot of different stuff, and it should be able to handle all (or at least most) of it.
+Well, at least at first. The purpose of this project is to get familiar with variadic arguments. For those of you who are _not_ nerds, that's a nerdy way of saying that you can give this function a lot of different stuff, and it should be able to handle all (or at least most) of the crazy things you ask it to do.
 
 After staring at the requirements for a few days, I decided to jump in head first, which later taught me a valuable lesson: not exhaustively considering all the corner cases means a lot of refactoring. This was the first project that I did not max-out the bonuses, as when it came time to add them, I realized that it would require a 💪Herculean💪 rewrite that would toss 75% of what I had written in the trash.
 
