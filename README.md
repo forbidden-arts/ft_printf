@@ -1,11 +1,8 @@
 # ft_printf
-![dpalmer's 42 stats](https://badge42.vercel.app/api/v2/cli5pb141011308mh1fmi5qrq/stats?cursusId=21&coalitionId=271)
-
-![Achievement Unlocked!](./assets/ft_printfe.png)
-
-![dpalmer's 42 ft_printf Score](https://badge42.vercel.app/api/v2/cli5pb141011308mh1fmi5qrq/project/2872716)
-
-## 🤓 Overview
+<!-- ![dpalmer's 42 stats](https://badge42.vercel.app/api/v2/cli5pb141011308mh1fmi5qrq/stats?cursusId=21&coalitionId=271)   -->
+![Achievement Unlocked!](./assets/ft_printfe.png)  
+<!-- ![dpalmer's 42 ft_printf Score](https://badge42.vercel.app/api/v2/cli5pb141011308mh1fmi5qrq/project/2872716) -->
+## 🪧 Overview
 Ah yes, the ever-useful printf: quick debugger of code, handler of an unspecified number of arguments, and **pain in my butt.**
 
 Well, at least at first. The purpose of this project is to get familiar with variadic arguments. For those of you who are _not_ nerds, that's a nerdy way of saying that you can give this function a lot of different stuff, and it should be able to handle all (or at least most) of the crazy things you ask it to do.
